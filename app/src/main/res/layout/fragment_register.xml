@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="eu.mcomputing.mobv.zadanie.ui.viewmodels.auth.RegisterViewModel"/>
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp">
+
+    <!-- Page Heading -->
+    <TextView
+        android:id="@+id/textView"
+        style="@style/heading1"
+        android:text="@string/register_heading"
+        app:layout_constraintBottom_toTopOf="@+id/subtitleText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <!-- Subtitle Text -->
+    <TextView
+        android:id="@+id/subtitleText"
+        style="@style/description1"
+        android:text="@string/register_subtitle"
+        app:layout_constraintBottom_toTopOf="@+id/signupUsernameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <!-- Username Input Field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/signupUsernameLayout"
+        style="@style/customTextField"
+        android:hint="@string/username"
+        app:layout_constraintBottom_toTopOf="@+id/signupEmailLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subtitleText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signupUsernameField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="@={viewModel.username}"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Email Input Field (New) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/signupEmailLayout"
+        style="@style/customTextField"
+        android:hint="@string/email"
+        app:layout_constraintBottom_toTopOf="@+id/signupPasswordLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupUsernameLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signupEmailField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:text="@={viewModel.email}"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Password Input Field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/signupPasswordLayout"
+        style="@style/customTextField"
+        android:hint="@string/password"
+        app:layout_constraintBottom_toTopOf="@+id/signupButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupEmailLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signupPasswordField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:text="@={viewModel.password}"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Signup Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signupButton"
+        style="@style/primaryBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/register"
+        app:layout_constraintBottom_toTopOf="@+id/loginRedirectButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="@{() -> viewModel.onRegisterClicked()}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signupPasswordLayout" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginRedirectButton"
+        style="@style/textButton"
+        android:text="@string/already_have_an_account_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signupButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

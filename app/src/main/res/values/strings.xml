@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">MOBV kllkedklsa</string>
+    <string name="mapbox_access_token">
+    pk.eyJ1IjoibDN4b29vIiwiYSI6ImNtZ2pmZDcwZzA3ajAybHNlc24wbGxxbzIifQ.uNd13zoTf0cgMm-K7LSZdA
+    </string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="profile_page_heading">Profile</string>
+    <string name="my_geofence_zones">Geofence Zones</string>
+    <string name="new_zone">New Zone</string>
+    <string name="update_photo_btn">Update Photo</string>
+    <string name="delete_photo_btn">Delete Photo</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="people">People</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="password_reset">Password Reset</string>
+    <string name="log_in_to_your_account">Log in to your account</string>
+    <string name="don_t_have_an_account_register">Don\'t have an account? Register</string>
+    <string name="email">Email</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="intro_subtitle">Where location meets learning</string>
+    <string name="app_name2">GeoSphere</string>
+    <string name="register_subtitle">Create an account to get started</string>
+    <string name="register_heading">Register</string>
+    <string name="password_reset_subtitle">Enter your email to reset your password</string>
+    <string name="send_reset_link">Send Reset Link</string>
+    <string name="back_to_login">Back to Login</string>
+
+</resources>
+

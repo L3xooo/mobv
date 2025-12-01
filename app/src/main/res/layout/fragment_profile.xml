@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="eu.mcomputing.mobv.zadanie.ui.viewmodels.ProfileViewModel"/>
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".ui.fragments.ProfileFragment">
+
+    <eu.mcomputing.mobv.zadanie.ui.widgets.TopNavbarLayout
+        android:id="@+id/topNavbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="24dp"
+
+        app:layout_constraintBottom_toTopOf="@id/navbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topNavbar"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_image"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:padding="4dp"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{viewModel.user.photo}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full" />
+
+        <TextView
+            android:id="@+id/profile_name"
+            style="@style/heading2"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.user.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_image" />
+
+
+        <LinearLayout
+            android:id="@+id/photoButtonContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_name">
+
+            <Button
+                android:id="@+id/updatePhotoButton"
+                style="@style/primaryBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/update_photo_btn"
+                />
+
+            <Button
+                android:id="@+id/deletePhotoButton"
+                style="@style/secondaryBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/delete_photo_btn"
+                android:onClick="@{() -> viewModel.onDeletePhotoButtonClick()}"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/changePasswordButton"
+            style="@style/tertiaryBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Change Password"
+            app:layout_constraintTop_toBottomOf="@id/photoButtonContainer"
+            app:layout_constraintBottom_toTopOf="@id/profile_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/profile_card"
+            style="@style/customCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/changePasswordButton">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/location_sharing_title"
+                    style="@style/heading3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Automatic Location Sharing"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/location_sharing_switch"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/location_sharing_subtitle"
+                    style="@style/description2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Shares your location automatically between 9:00 and 17:00."
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/location_sharing_switch"
+                    app:layout_constraintTop_toBottomOf="@id/location_sharing_title" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/location_sharing_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:checked="true"
+                    app:layout_constraintTop_toTopOf="@id/location_sharing_title"
+                    app:layout_constraintBottom_toBottomOf="@id/location_sharing_subtitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:thumbTint="@color/white"
+                    app:trackTint="@color/switch_track_selector" />
+
+                <!-- Divider below first block -->
+                <View
+                    android:id="@+id/switchDivider"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="8dp"
+                    android:background="#DDDDDD"
+                    app:layout_constraintTop_toBottomOf="@id/location_sharing_subtitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/manualLocationSharingHeader"
+                    style="@style/heading3"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_height="wrap_content"
+                    android:text="Manual Location Sharing"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/manualLocationSharingSwitch"
+                    app:layout_constraintTop_toBottomOf="@id/switchDivider" />
+
+                <TextView
+                    android:id="@+id/manualLocationSharingSubtitle"
+                    style="@style/description2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Enable location sharing manually."
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/manualLocationSharingSwitch"
+                    app:layout_constraintTop_toBottomOf="@id/manualLocationSharingHeader" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/manualLocationSharingSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:checked="false"
+                    app:layout_constraintTop_toTopOf="@id/manualLocationSharingHeader"
+                    app:layout_constraintBottom_toBottomOf="@id/manualLocationSharingSubtitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:thumbTint="@color/white"
+                    app:trackTint="@color/switch_track_selector" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Text pod kartou -->
+        <TextView
+            android:id="@+id/location_sharing_description"
+            style="@style/description2"
+            android:layout_width="0dp"
+            android:layout_marginTop="16dp"
+            android:text="Your location is shared automatically from 9:00 to 17:00. Turn automatic sharing off if you prefer manual check-ins."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_card" />
+
+        <View
+            android:id="@+id/divider_bottom"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/location_sharing_description" />
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_bottom">
+
+            <TextView
+                android:id="@+id/extra_info_text"
+                style="@style/heading2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/my_geofence_zones" />
+
+<!--            <Button-->
+<!--                android:id="@+id/newZoneButton"-->
+<!--                style="@style/primaryBtn"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/new_zone" />-->
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mapViewWrapper"
+            style="@style/customCard"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/header"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <com.mapbox.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <eu.mcomputing.mobv.zadanie.ui.widgets.NavbarLayout
+        android:id="@+id/navbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

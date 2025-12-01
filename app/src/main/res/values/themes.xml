@@ -1,0 +1,35 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme -->
+
+    <style name="Base.Theme.MOBVZadanie" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="textInputStyle">@style/TextFieldCustom</item>
+    </style>
+
+    <style name="Theme.MOBVZadanie" parent="Base.Theme.MOBVZadanie" />
+
+    <!-- Dialog-specific theme -->
+    <style name="MyAlertDialogTheme" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="android:background">@color/background</item>
+        <item name="materialAlertDialogTheme">@style/MyAlertDialogTheme</item>
+        <item name="buttonBarPositiveButtonStyle">@style/MyDialogPositiveButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/MyDialogNegativeButton</item>
+    </style>
+
+    <style name="MyDialogTitleText" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MyDialogPositiveButton" parent="primaryBtn">
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="MyDialogNegativeButton" parent="secondaryBtn" />
+
+    <style name="TextFieldCustom" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/blue</item>
+        <item name="hintTextColor">@color/blue</item>
+    </style>
+</resources>

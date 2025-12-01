@@ -1,0 +1,86 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/topBorder"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/light_light_grey"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/topBorder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageButton
+            android:padding="8dp"
+            android:id="@+id/mapIconButton"
+            style="@style/navbarItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/map" />
+        <TextView
+            android:id="@+id/mapIconButtonLabel"
+            style="@style/navbarItemText"
+            android:text="Map"
+            />
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <ImageButton
+                android:padding="8dp"
+                android:id="@+id/listIconButton"
+                style="@style/navbarItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/contacts" />
+            <TextView
+                android:id="@+id/listIconButtonLabel"
+                style="@style/navbarItemText"
+                android:text="People"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <ImageButton
+                android:padding="8dp"
+                android:id="@+id/profileIconButton"
+                style="@style/navbarItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/profile" />
+            <TextView
+                android:id="@+id/profileIconButtonLabel"
+                style="@style/navbarItemText"
+                android:text="Profile"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
